@@ -1,0 +1,17 @@
+$font-face: (
+  'SoDoSans-Thin': 200,
+  'SoDoSans-Light': 300,
+  'SoDoSans-Regular': 400,
+  'SoDoSans-SemiBold': 500,
+  'SoDoSans-Bold': 600,
+  'SoDoSans-Black': 800,
+);
+$font-name: 'SoDo Sans';
+
+@each $font-key, $font-weight in $font-face {
+  @include font-face(
+    $font-name,
+    '#{$path}/fonts/SodoSans/#{$font-key}',
+    $font-weight
+  );
+}

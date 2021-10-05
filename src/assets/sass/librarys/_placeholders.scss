@@ -1,0 +1,52 @@
+@each $font-key, $font-value in $font-family {
+  %font-family-#{$font-key} {
+    font-family: $font-value;
+
+    @if ($font-key== "Awesome5Free") {
+      display: inline-block;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      vertical-align: middle;
+
+      font-weight: 900;
+    }
+  }
+}
+
+@each $color-key, $color-value in $color {
+  %color-#{$color-key} {
+    color: $color-value;
+  }
+
+  %background-#{$color-key} {
+    background-color: $color-value;
+  }
+}
+
+@for $i from map_get($font-size, "min") through map_get($font-size, "max") {
+  %font-size-#{$i} {
+    font-size: rem($i);
+  }
+}
+
+@each $transition-key, $transition-value in $transition {
+  %transition-#{$transition-key} {
+    transition: $transition-value;
+  }
+}
+
+%base-title {
+  @extend %font-family-SoDoSans;
+  font-style: normal;
+  font-weight: 500;
+  font-size: rem(16px);
+  color: rgba($color: $black, $alpha: 1);
+  line-height: rem(29px);
+  margin-bottom: 24px;
+  @include media(">=md") {
+    font-size: rem(24px);
+  }
+}

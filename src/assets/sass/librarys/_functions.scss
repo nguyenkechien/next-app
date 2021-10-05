@@ -1,0 +1,32 @@
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+
+  @return $number;
+}
+// convert rem unit default html 100$ = 16px
+@function rem($unit) {
+  @return (strip-unit($unit) / strip-unit(map-get($init, 'font-size'))) +0rem;
+}
+
+@mixin displayFlex($elem1: flex, $elem2: center, $elem3: center) {
+  display: $elem1;
+  justify-content: $elem2;
+  align-items: $elem3;
+}

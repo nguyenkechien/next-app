@@ -1,0 +1,69 @@
+@each $font-key, $font-value in $font-family {
+  .font-family-#{$font-key} {
+    font-family: $font-value;
+
+    @if ($font-key== 'Awesome5Free') {
+      display: inline-block;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-style: normal;
+      font-variant: normal;
+      text-rendering: auto;
+      vertical-align: middle;
+
+      font-weight: 900;
+    }
+  }
+}
+
+@each $color-key, $color-value in $color {
+  .color-#{$color-key} {
+    color: $color-value;
+  }
+
+  .background-#{$color-key} {
+    background-color: $color-value;
+  }
+}
+
+@for $i from map_get($font-size, 'min') through map_get($font-size, 'max') {
+  .font-size-#{$i} {
+    font-size: rem($i);
+  }
+}
+
+@each $transition-key, $transition-value in $transition {
+  .transition-#{$transition-key} {
+    transition: $transition-value;
+  }
+}
+
+@each $key, $value in $grid-breakpoints {
+  .container-#{$key} {
+    max-width: $value;
+  }
+}
+
+@each $prop, $abbrev in (margin: m, padding: p) {
+  @each $size, $length in $spacers {
+    .#{$abbrev}-#{$size} {
+      #{$prop}: $length !important;
+    }
+    .#{$abbrev}t-#{$size},
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-top: $length !important;
+    }
+    .#{$abbrev}r-#{$size},
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-right: $length !important;
+    }
+    .#{$abbrev}b-#{$size},
+    .#{$abbrev}y-#{$size} {
+      #{$prop}-bottom: $length !important;
+    }
+    .#{$abbrev}l-#{$size},
+    .#{$abbrev}x-#{$size} {
+      #{$prop}-left: $length !important;
+    }
+  }
+}
