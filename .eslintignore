@@ -1,0 +1,9 @@
+node_modules/
+production/
+build/
+.editorconfig
+src/assets/library/bootstrap4/
+src/assets/library/cdns/
+src/mock
+report/
+server/

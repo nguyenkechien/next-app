@@ -1,0 +1,6 @@
+node_modules/
+production/
+.editorconfig
+src/assets/library/bootstrap4/
+src/assets/library/cdns/
+report/

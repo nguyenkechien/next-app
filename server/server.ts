@@ -1,11 +1,11 @@
-import express from "express";
-import bodyParser from "body-parser";
-import path from "path";
-import fs from "fs";
-import https from "https";
-import http, { IncomingMessage, ServerResponse } from "http";
-import type { NextServer } from "next/dist/server/next";
-import { parse } from "url";
+import express from 'express';
+import bodyParser from 'body-parser';
+import path from 'path';
+import fs from 'fs';
+import https from 'https';
+import http, { IncomingMessage, ServerResponse } from 'http';
+import type { NextServer } from 'next/dist/server/next';
+import { parse } from 'url';
 
 const serverApp = express();
 serverApp.use(bodyParser.urlencoded({ extended: true }));
@@ -17,8 +17,8 @@ interface StartServer {
   app: NextServer;
 }
 const httpsOpt = {
-  key: fs.readFileSync(path.join(__dirname, "https", "server.key")),
-  cert: fs.readFileSync(path.join(__dirname, "https", "server.crt")),
+  key: fs.readFileSync(path.join(__dirname, 'https', 'server.key')),
+  cert: fs.readFileSync(path.join(__dirname, 'https', 'server.crt')),
 };
 
 const startServer = ({ dev, app, isHttps }: StartServer) => {
@@ -31,11 +31,11 @@ const startServer = ({ dev, app, isHttps }: StartServer) => {
     const parsedUrl = parse(req.url!, true);
     handle(req, res, parsedUrl);
   };
-  serverApp.get("/user/:username", function (req, res) {
+  serverApp.get('/user/:username', function (req, res) {
     const { username } = req.params;
-    app.render(req, res, "/user", { username });
+    app.render(req, res, '/user', { username });
   });
-  serverApp.get("*", handleCreateServer);
+  serverApp.get('*', handleCreateServer);
   const server = isHttps
     ? https.createServer(httpsOpt, serverApp)
     : http.createServer(serverApp);

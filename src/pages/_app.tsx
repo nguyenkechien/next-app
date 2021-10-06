@@ -1,23 +1,18 @@
-import '@src/styles/globals.css'
-import type { AppProps } from 'next/app'
+/* eslint-disable react/jsx-props-no-spreading */
+import type { AppProps } from 'next/app';
+import '@src/assets/sass/styles/globals.css';
+import '@src/assets/sass/layouts.scss';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  return <Component {...pageProps} />;
 }
 
-MyApp.getInitialProps = async ({ Component, ctx, router }: any) => {
+MyApp.getInitialProps = async ({ Component, ctx }: any) => {
   let pageProps = {};
-  const {
-    getInitialProps,
-    getServerSideProps,
-  } = Component;
+  const { getInitialProps, getServerSideProps } = Component;
 
-  const initialProps =
-    getInitialProps && (await getInitialProps(ctx));
-
-  const serverProps =
-    getServerSideProps && (await getServerSideProps(ctx));
-
+  const initialProps = getInitialProps && (await getInitialProps(ctx));
+  const serverProps = getServerSideProps && (await getServerSideProps(ctx));
 
   pageProps = {
     ...pageProps,
@@ -25,6 +20,6 @@ MyApp.getInitialProps = async ({ Component, ctx, router }: any) => {
     ...initialProps,
   };
 
-  return { pageProps }
-}
-export default MyApp
+  return { pageProps };
+};
+export default MyApp;

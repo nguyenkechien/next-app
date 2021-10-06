@@ -1,8 +1,8 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '@src/styles/Home.module.css'
-import vercel from '@src/assets/images/vercel.svg'
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import Image from 'next/image';
+import styles from '@src/assets/sass/styles/Home.module.css';
+// import styles from '@src/assets/sass/layouts/Home.module.scss';
 
 const Home: NextPage = () => {
   return (
@@ -67,7 +67,7 @@ const Home: NextPage = () => {
         </a>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

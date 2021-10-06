@@ -1,0 +1,55 @@
+{
+  "root": true,
+  "rules": {
+    "dot-notation": ["error", { "allowPattern": "^[a-z]+(_[a-z]+)+$" }],
+    "no-restricted-syntax": ["error", "WithStatement"],
+    "react/react-in-jsx-scope": "off",
+    "react/jsx-filename-extension": [
+      1,
+      { "extensions": [".js", ".jsx", ".ts", ".tsx"] }
+    ],
+    "array-callback-return": [
+      "error",
+      {
+        "allowImplicit": true,
+        "checkForEach": false
+      }
+    ],
+    "func-names": ["error", "never"],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/no-unresolved": "off",
+    "import/order": [
+      "warn",
+      {
+        "warnOnUnassignedImports": true
+      }
+    ],
+    "no-param-reassign": "off",
+    "no-underscore-dangle": 0,
+    "prettier/prettier": ["error", { "semi": true }],
+    "react/no-unescaped-entities": "off",
+    "react/react/prop-types": "off",
+    "@next/next/no-page-custom-font": "off"
+  },
+
+  "settings": {
+    "polyfills": ["Promise", "fetch", "URLSearchParams"]
+  },
+  "extends": [
+    "next",
+    "prettier",
+    "eslint:recommended",
+    "airbnb",
+    "airbnb-typescript",
+    "airbnb/hooks",
+    "plugin:@next/next/recommended",
+    "plugin:react/recommended",
+    "plugin:compat/recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  }
+}
