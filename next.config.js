@@ -3,6 +3,8 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+
 const DartSass = require('sass');
 
 const srcFolder = [path.resolve('src')];
@@ -80,12 +82,14 @@ const MODULE_CSS = [
   },
 ];
 
+const rootDir = path.join(__dirname, './');
+
 /** @type {import('next').NextConfig} */
 module.exports = {
   distDir: 'dist/.next',
   reactStrictMode: true,
   serverRuntimeConfig: {
-    rootDir: path.join(__dirname, './'),
+    rootDir,
   },
   publicRuntimeConfig: {
     isDev,
@@ -98,7 +102,7 @@ module.exports = {
           experimentalUseImportModule: true,
         }),
         new ESLintPlugin({
-          context: path.join(__dirname, './'),
+          context: rootDir,
           lintDirtyModulesOnly: true,
           cache: true,
         }),
@@ -126,18 +130,24 @@ module.exports = {
             generateStatsFile: true,
             statsFilename: 'stats.json',
           }),
-          // new TerserPlugin({
-          //   cache: true,
-          //   terserOptions: {
-          //     ecma: 6,
-          //     warnings: false,
-          //     extractComments: false, // remove comment
-          //     compress: {
-          //       drop_console: true, // remove console
-          //     },
-          //     ie8: false,
-          //   },
-          // }),
+          new CopyPlugin({
+            patterns: [
+              {
+                from: path.join(__dirname, 'public'),
+                to: path.join(__dirname, 'dist/public'),
+              },
+            ],
+          }),
+          new TerserPlugin({
+            terserOptions: {
+              ecma: 6,
+              warnings: false,
+              compress: {
+                drop_console: true, // remove console
+              },
+              ie8: false,
+            },
+          }),
         ],
       );
       config.module.rules.push({

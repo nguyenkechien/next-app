@@ -7,7 +7,6 @@
     "build": "npm run lint:format && next build && tsc --project tsconfig.server.json",
     "start": "node dist/index.js",
     "lint": "next lint",
-    "copyFiles": "copyfiles -a server/https/**.* ./dist",
     "lint:format": "prettier --write \"{,!(node_modules|dist|build)/**/}*.(js|ts|jsx|tsx)\""
   },
   "dependencies": {
@@ -29,10 +28,8 @@
     "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
-    "@zeit/next-css": "^1.0.1",
-    "@zeit/next-sass": "^1.0.1",
     "autoprefixer": "^9.8.8",
-    "copyfiles": "^2.4.1",
+    "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.3.0",
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
