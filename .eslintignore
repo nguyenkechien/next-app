@@ -1,9 +1,10 @@
 node_modules/
 production/
 build/
+dist/
 .editorconfig
 src/assets/library/bootstrap4/
 src/assets/library/cdns/
 src/mock
 report/
-server/
+next.config.js

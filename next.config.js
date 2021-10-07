@@ -125,11 +125,6 @@ module.exports = {
     if (!dev) {
       config.plugins.push(
         ...[
-          new BundleAnalyzerPlugin({
-            analyzerMode: 'disabled',
-            generateStatsFile: true,
-            statsFilename: 'stats.json',
-          }),
           new CopyPlugin({
             patterns: [
               {
@@ -147,6 +142,11 @@ module.exports = {
               },
               ie8: false,
             },
+          }),
+          new BundleAnalyzerPlugin({
+            analyzerMode: 'disabled',
+            generateStatsFile: true,
+            statsFilename: 'stats.json',
           }),
         ],
       );
@@ -172,7 +172,6 @@ module.exports = {
         },
         loader: 'eslint-loader',
       });
-      // config.devtool = isServer ? false : 'cheap-module-inline-source-map';
       config.devtool = isServer ? false : 'source-map';
     }
     return config;
