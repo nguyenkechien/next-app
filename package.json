@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nodemon",
-    "build": "npm run lint:format && tsc --project tsconfig.server.json && next build",
+    "build": "tsc --project tsconfig.server.json && next build",
     "start": "node dist/server.js",
     "lint": "next lint",
     "lint:format": "prettier --write \"{,!(node_modules|dist|build)/**/}*.(js|ts|jsx|tsx)\""
