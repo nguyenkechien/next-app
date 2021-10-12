@@ -153,8 +153,7 @@ module.exports = {
             generateStatsFile: true,
             statsFilename: 'stats.json',
           }),
-          // new Sync({ syncTo: path.join(rootDir, '../', 'next-production') }),
-          new Sync({ rootDir, syncTo: path.join(rootDir, 'next-production') }),
+          // new Sync({ rootDir, syncTo: path.join(rootDir, 'next-production') }),
         ],
       );
       config.module.rules.push({
