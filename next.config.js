@@ -4,6 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const Sync = require('./src/assets/plugins/sync');
 
 const DartSass = require('sass');
 
@@ -131,6 +132,10 @@ module.exports = {
                 from: path.join(__dirname, 'public'),
                 to: path.join(__dirname, 'dist/public'),
               },
+              {
+                from: path.join(__dirname, 'src', 'assets', 'fonts'),
+                to: path.join(__dirname, 'dist/public/fonts'),
+              },
             ],
           }),
           new TerserPlugin({
@@ -148,6 +153,8 @@ module.exports = {
             generateStatsFile: true,
             statsFilename: 'stats.json',
           }),
+          // new Sync({ syncTo: path.join(rootDir, '../', 'next-production') }),
+          new Sync({ rootDir, syncTo: path.join(rootDir, 'next-production') }),
         ],
       );
       config.module.rules.push({

@@ -5,6 +5,7 @@ dist/
 .editorconfig
 src/assets/library/bootstrap4/
 src/assets/library/cdns/
+src/assets/plugins/
 src/mock
 report/
 next.config.js

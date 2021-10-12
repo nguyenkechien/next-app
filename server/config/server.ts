@@ -1,3 +1,5 @@
+import path from 'path';
+
 require('dotenv').config();
 
 export const serverConfig = {
@@ -8,4 +10,5 @@ export const serverConfig = {
     NODE_ENV: process.env.NODE_ENV,
     BABEL_ENV: process.env.NODE_ENV,
   },
+  root: path.join(__dirname, process.cwd()),
 };

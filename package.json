@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "nodemon",
-    "build": "npm run lint:format && next build && tsc --project tsconfig.server.json",
-    "start": "node dist/index.js",
+    "build": "npm run lint:format && tsc --project tsconfig.server.json && next build",
+    "start": "node dist/server.js",
     "lint": "next lint",
     "lint:format": "prettier --write \"{,!(node_modules|dist|build)/**/}*.(js|ts|jsx|tsx)\""
   },
@@ -47,6 +47,7 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-webpack-plugin": "^3.0.1",
+    "fs-extra": "^8.1.0",
     "mini-css-extract-plugin": "^2.4.1",
     "nodemon": "^2.0.13",
     "postcss": "^8.2.15",

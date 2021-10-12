@@ -16,6 +16,7 @@
       }
     ],
     "func-names": ["error", "never"],
+    "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/no-unresolved": "off",
     "import/order": [
