@@ -10,5 +10,5 @@ export const serverConfig = {
     NODE_ENV: process.env.NODE_ENV,
     BABEL_ENV: process.env.NODE_ENV,
   },
-  root: path.join(__dirname, process.cwd()),
+  rootPath: path.join(process.cwd()),
 };
