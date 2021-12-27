@@ -22,14 +22,10 @@ const httpsOpt = {
   cert: fs.readFileSync(path.join(__dirname, 'https', 'server.crt')),
 };
 
-const startServer = ({ dev, app, isHttps, rootPath }: StartServer) => {
+const startServer = ({ dev, app, isHttps }: StartServer) => {
   const handle = app.getRequestHandler();
   if (dev) {
     https.globalAgent.options.rejectUnauthorized = false;
-    serverApp.use(
-      '/fonts',
-      express.static(path.join(rootPath, 'src', 'assets', 'fonts')),
-    );
   }
 
   const handleCreateServer = (req: IncomingMessage, res: ServerResponse) => {

@@ -3,9 +3,6 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
-// const Sync = require('./src/assets/plugins/sync');
-
 const DartSass = require('sass');
 
 const srcFolder = [path.resolve('src')];
@@ -126,18 +123,6 @@ module.exports = {
     if (!dev) {
       config.plugins.push(
         ...[
-          new CopyPlugin({
-            patterns: [
-              {
-                from: path.join(__dirname, 'public'),
-                to: path.join(__dirname, 'dist/public'),
-              },
-              {
-                from: path.join(__dirname, 'src', 'assets', 'fonts'),
-                to: path.join(__dirname, 'dist/public/fonts'),
-              },
-            ],
-          }),
           new TerserPlugin({
             terserOptions: {
               ecma: 6,
@@ -153,7 +138,6 @@ module.exports = {
             generateStatsFile: true,
             statsFilename: 'stats.json',
           }),
-          // new Sync({ rootDir, syncTo: path.join(rootDir, 'next-production') }),
         ],
       );
       config.module.rules.push({
@@ -178,7 +162,7 @@ module.exports = {
         },
         loader: 'eslint-loader',
       });
-      config.devtool = isServer ? false : 'source-map';
+      config.devtool = 'eval-source-map';
     }
     return config;
   },
