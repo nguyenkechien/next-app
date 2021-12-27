@@ -4,4 +4,3 @@
 yarn check-ts
 yarn lint-staged
 
-yarn lint-staged

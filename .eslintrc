@@ -38,7 +38,7 @@
     "polyfills": ["Promise", "fetch", "URLSearchParams"]
   },
   "extends": [
-    "next",
+    // "next",
     "prettier",
     "eslint:recommended",
     "airbnb",
