@@ -38,61 +38,27 @@ $font-size: (
   'max': 100px,
 );
 
-/** Base color */
-$black: #000;
-$black56: rgba(0, 0, 0, 0.56);
-$black87: rgba(0, 0, 0, 0.87);
-$black14: rgba(0, 0, 0, 0.14);
-$black24: rgba(0, 0, 0, 0.24);
-$black12: rgba(0, 0, 0, 0.12);
-$black45: rgba(0, 0, 0, 0.45);
-
-$white: #fff;
-$grey: grey;
-$dark-grey: #333537;
-$light-gray: #f7f7f7;
-$light-gray-2: #efefef;
-$tepapa-green: #1e3932;
-$white-c4: #c4c4c4;
-/** Starbucks color */
-$sb-green: #00874a;
-$sb-green-dark: #00704a;
-$sb-grey: #f9f9f9;
-$sb-emerald: #00a862;
-$sb-gin: #e9f2ed;
-
-// $siren-green: #00704a;
-
-/** misc */
-$error: #d62b1f;
-$success: #28a745;
-$warning: #e0a800;
-$info: #17a2b8;
-
 /**
 * using with placeholder : @extend %color-white
 * using with class name : @extend .color-white
 */
 $color: (
-  'white': $white,
-  'black56': $black56,
-  'black': $black,
-  'grey': $grey,
-  'dark-grey': $dark-grey,
+  'white': #fff,
+  'black': #000,
+  'grey': grey,
   'f36e21': #f36e21,
   '404040': #404040,
   '1d1f22': #1d1f22,
   'e6e7e8': #e6e7e8,
   '72757e': #72757e,
-  'ebebeb': #ebebeb,
   '8c8c8c': #8c8c8c,
   'd12727': #d12727,
   'bdbdbe': #bdbdbe,
   'dadadb': #dadadb,
-  'sb-green': $sb-green,
-  'sb-green-dark': $sb-green-dark,
-  'sb-grey': $sb-grey,
-  'error': $error,
+  'error': #d62b1f,
+  'success': #28a745,
+  'warning': #e0a800,
+  'info': #17a2b8,
 );
 
 $zindex: (

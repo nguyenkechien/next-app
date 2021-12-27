@@ -2,7 +2,7 @@ import type { NextPage } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
 import styles from '@src/assets/sass/styles/Home.module.css';
-// import styles from '@src/assets/sass/layouts/Home.module.scss';
+import { Input } from '@src/atoms/Input/index';
 
 const Home: NextPage = () => {
   return (
@@ -66,6 +66,8 @@ const Home: NextPage = () => {
           </span>
         </a>
       </footer>
+
+      <Input />
     </div>
   );
 };

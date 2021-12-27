@@ -1,0 +1,10 @@
+.activeBlue {
+  border-color: blue;
+}
+
+.inputWarper {
+  padding-bottom: map-get($init, 'padding-section');
+  input {
+    border-radius: 15px;
+  }
+}

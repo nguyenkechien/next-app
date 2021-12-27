@@ -4,7 +4,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const Sync = require('./src/assets/plugins/sync');
+// const Sync = require('./src/assets/plugins/sync');
 
 const DartSass = require('sass');
 
@@ -36,7 +36,7 @@ const MODULE_SASS = [
     loader: 'sass-loader',
     options: {
       sourceMap: isDev,
-      additionalData: `@import '@src/assets/sass/librarys';`,
+      additionalData: `@import '@src/assets/sass/library';`,
       sassOptions: {
         implementation: DartSass,
         includePaths: [path.join(__dirname, 'src', 'assets', 'sass')],
@@ -72,7 +72,7 @@ const MODULE_CSS = [
     loader: 'sass-loader',
     options: {
       sourceMap: isDev,
-      additionalData: `@import '@src/assets/sass/librarys';`,
+      additionalData: `@import '@src/assets/sass/library';`,
       sassOptions: {
         implementation: DartSass,
         includePaths: [path.join(__dirname, 'src', 'assets', 'sass')],
