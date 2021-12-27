@@ -17,6 +17,8 @@ MyApp.getInitialProps = async ({ Component, ctx }: any) => {
     ...pageProps,
     ...serverProps,
     ...initialProps,
+
+
   };
 
   return { pageProps };
