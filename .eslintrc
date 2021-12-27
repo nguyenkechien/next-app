@@ -20,17 +20,11 @@
     "import/prefer-default-export": "off",
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "import/no-unresolved": "off",
-    "import/order": [
-      "warn",
-      {
-        "warnOnUnassignedImports": true
-      }
-    ],
     "no-param-reassign": "off",
     "no-underscore-dangle": 0,
     "prettier/prettier": ["error", { "semi": true }],
     "react/no-unescaped-entities": "off",
-    "react/react/prop-types": "off",
+    "react/prop-types": "off",
     "@next/next/no-page-custom-font": "off"
   },
 
@@ -51,6 +45,7 @@
     "plugin:import/errors",
     "plugin:import/warnings"
   ],
+  "plugins": ["@typescript-eslint", "prettier", "simple-import-sort"],
   "parserOptions": {
     "project": "./tsconfig.json"
   }
