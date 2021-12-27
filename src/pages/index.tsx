@@ -6,6 +6,7 @@ import { Input } from '@src/atoms/Input/index';
 
 const Home: NextPage = () => {
   console.log(process.env.NEXT_PUBLIC_ENV);
+  console.log(process.env.NEXT_PUBLIC_ENV_2);
   return (
     <div className="container">
       <Head>
